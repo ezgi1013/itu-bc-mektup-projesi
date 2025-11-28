@@ -18,19 +18,19 @@ while(!confirmed){
   {
     type: "password",
     name: "password1",
-    message: "Şifre belirleyiniz:" 
+    message: chalk.blueBright("Şifre belirleyiniz:") 
   },
   {
     type: "password",
     name: "password2",
-    message: "Şifreyi tekrar giriniz:" 
+    message: chalk.blueBright("Şifreyi tekrar giriniz:")
   }
 ]);
   if(answersPassword.password1 == answersPassword.password2){
-  console.log("Şifreler eşleşti!");
+  console.log(chalk.greenBright("Şifreler eşleşti!"));
   confirmed = true;
 } else {
-  console.log("Şifreler eşleşmiyor, lütfen tekrar deneyiniz.");
+  console.log(chalk.red("Şifreler eşleşmiyor, lütfen tekrar deneyiniz."));
     
 }}
  
@@ -41,16 +41,16 @@ while(a){
     const answers = await inquirer.prompt([
     {  type: "input",
        name: "letter",
-       message: "Mektubu yazınız:"
+       message: chalk.yellow("Mektubu yazınız:")
     },
     { type: "input",
       name: "sender",
-    message: "Gönderenin ismi:"
+    message: chalk.cyan("Gönderenin ismi:")
     },
     {
         type: "input",
         name: "openDate",
-        message: "Açılma tarihini giriniz (YYYY-MM-DDTHH:mm):",
+        message: chalk.magenta("Açılma tarihini giriniz (YYYY-MM-DDTHH:mm):"),
         validate: (input) => {
       
       const regex = /^\d{4}-\d{2}-\d{2} \d{2}:\d{2}$/;
@@ -75,7 +75,7 @@ while(a){
 ]);
   
 const newBlock = myChain.addBlock(answers);
-console.log(chalk.magenta(`\n✅ Blok #${newBlock.blockNumber} eklendi!`));
+console.log(chalk.bgGray(`\n✅ Blok #${newBlock.blockNumber} eklendi!`));
 
 
 
@@ -83,7 +83,7 @@ console.log(chalk.magenta(`\n✅ Blok #${newBlock.blockNumber} eklendi!`));
   {
         type: "input",
         name: "continue",
-        message: "Yeni veri eklemek ister misiniz?(evet/hayır)",
+        message: chalk.yellowBright("Yeni veri eklemek ister misiniz?(evet/hayır)"),
         validate: (input) => {
             if(input.toLowerCase() === "evet" || input.toLowerCase() === "hayır"){
                 return true;
@@ -106,12 +106,12 @@ console.log(chalk.magenta(`\n✅ Blok #${newBlock.blockNumber} eklendi!`));
         {
             type: "password",
             name: "passwordCheck",
-            message: "Şifrenizi giriniz:"
+            message: chalk.blueBright( "Şifrenizi giriniz:")
         }
       ]);
         if(passWant.passwordCheck === pass){
           b = false;
-          console.log("Şifre doğru, blockchain zinciri görüntüleniyor...");
+          console.log(chalk.green("Şifre doğru, blockchain zinciri görüntüleniyor..."));
           myChain.printChain();
       }      
         else {

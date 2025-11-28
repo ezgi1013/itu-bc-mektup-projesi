@@ -4,7 +4,7 @@ import { runInput } from "./input.js";
 import { Blockchain } from "./blockchain.js";
 import { Block } from "./block.js";
 
-console.log("💌 Blockchain Mektup Sistemine Hoşgeldiniz!");
+console.log(chalk.bgCyanBright("💌 Blockchain Mektup Sistemine Hoşgeldiniz!"));
 runInput();
 
   
