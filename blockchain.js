@@ -11,7 +11,7 @@ export class Blockchain {
   }
 
 
-  createGenesisBlock(data) {
+  createGenesisBlock() {
     const genesis = new Block(1, "Genesis Block" ,"0");
     this.chain.push(genesis);
   }
