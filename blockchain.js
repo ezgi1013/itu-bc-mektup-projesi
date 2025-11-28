@@ -3,6 +3,7 @@ import crypto from "crypto";
 import { Block } from "./block.js";
 
 
+
 export class Blockchain {
   constructor() {
     this.chain = []; 
@@ -11,7 +12,7 @@ export class Blockchain {
 
 
   createGenesisBlock() {
-    const genesis = new Block(0, "Genesis Block","0");
+    const genesis = new Block(1, "Genesis Block","0");
     this.chain.push(genesis);
   }
 
@@ -30,11 +31,23 @@ export class Blockchain {
   printChain() {
     console.log(chalk.blue.bold("\n🔗 Blockchain Zinciri:"));
     this.chain.forEach((block) => {
-      console.log(chalk.green(`Blok #${block.blockNumber}`));
+      console.log(chalk.green(`Blok #${block.blockNumber -1}`));
       console.log("Tarih:", block.timestamp);
       console.log("Önceki Hash:", block.previousHash);
       console.log("Şimdiki Hash:", block.hash);
-      console.log("Veri:", block.data);
+
+      if (!block.data || !block.data.openDate) {
+    console.log(`Açılma tarihi yok, atlandı.`);
+    return;
+  }
+      const timeNow = new Date()
+      const timeLetter = new Date(block.data.openDate.replace(" ","T"))
+      
+      if(timeLetter <= timeNow){
+        console.log("Veri:", block.data);
+      }else {
+        console.log("Mektup açılma tarihi daha gelmedi.");
+      }
     });
   }
 }
