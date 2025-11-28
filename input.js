@@ -6,8 +6,8 @@ import { Blockchain } from "./blockchain.js";
 import { Block } from "./block.js";
 
 export async function runInput() {
-let a = true;
-let b = true;
+let writeLetter = true;
+let passCheck = true;
 let confirmed = false;
 let answersPassword;
 const myChain = new Blockchain();
@@ -38,7 +38,7 @@ while(!confirmed){
 const pass = answersPassword.password1;
 
 
-while(a){
+while(writeLetter){
     const answers = await inquirer.prompt([
     {  type: "input",
        name: "letter",
@@ -51,7 +51,7 @@ while(a){
     {
         type: "input",
         name: "openDate",
-        message: chalk.magenta("Açılma tarihini giriniz (YYYY-MM-DDTHH:mm):"),
+        message: chalk.magenta("Açılma tarihini giriniz (YYYY-MM-DD HH:mm):"),
         validate: (input) => {
       
       const regex = /^\d{4}-\d{2}-\d{2} \d{2}:\d{2}$/;
@@ -74,6 +74,7 @@ while(a){
     }
       },
 ]);
+ 
   
 const newBlock = myChain.addBlock(answers);
 console.log(chalk.bgGray(`Mektup #${newBlock.blockNumber -1} eklendi!`));
@@ -101,8 +102,8 @@ console.log(chalk.bgGray(`Mektup #${newBlock.blockNumber -1} eklendi!`));
     if(continue1.continue.toLowerCase() === "evet"){        
         console.log("Yeni mektup yazınız.");
     } else {
-      a = false;
-      while(b){
+      writeLetter = false;
+      while(passCheck){
         const passWant= await inquirer .prompt([
         {
             type: "password",
@@ -117,7 +118,7 @@ console.log(chalk.bgGray(`Mektup #${newBlock.blockNumber -1} eklendi!`));
       }      
         else {
           console.log("❌ Yanlış şifre, lütfen tekrar deneyiniz.");
-          b = true;
+          passCheck = true;
           }
         
         

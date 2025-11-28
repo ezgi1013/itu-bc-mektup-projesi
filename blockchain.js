@@ -11,8 +11,8 @@ export class Blockchain {
   }
 
 
-  createGenesisBlock() {
-    const genesis = new Block(1, "Genesis Block","0");
+  createGenesisBlock(data) {
+    const genesis = new Block(1, "Genesis Block" ,"0");
     this.chain.push(genesis);
   }
 
@@ -40,6 +40,7 @@ export class Blockchain {
     console.log(`Açılma tarihi yok, atlandı.`);
     return;
   }
+
       const timeNow = new Date()
       const timeLetter = new Date(block.data.openDate.replace(" ","T"))
       
