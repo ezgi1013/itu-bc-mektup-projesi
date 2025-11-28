@@ -1,5 +1,6 @@
 import inquirer from "inquirer";
 import chalk from "chalk";
+import crypto from "crypto";
 
 import { Blockchain } from "./blockchain.js";
 import { Block } from "./block.js";
@@ -75,7 +76,7 @@ while(a){
 ]);
   
 const newBlock = myChain.addBlock(answers);
-console.log(chalk.bgGray(`Blok #${newBlock.blockNumber} eklendi!`));
+console.log(chalk.bgGray(`Mektup #${newBlock.blockNumber -1} eklendi!`));
 
 
 
