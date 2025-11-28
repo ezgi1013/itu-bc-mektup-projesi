@@ -75,7 +75,7 @@ while(a){
 ]);
   
 const newBlock = myChain.addBlock(answers);
-console.log(chalk.bgGray(`\n✅ Blok #${newBlock.blockNumber} eklendi!`));
+console.log(chalk.bgGray(`Blok #${newBlock.blockNumber} eklendi!`));
 
 
 

@@ -17,7 +17,7 @@ export class Blockchain {
   printChain() {
     console.log(chalk.blue.bold("\n🔗 Blockchain Zinciri:"));
     this.chain.forEach((block) => {
-      console.log(chalk.green(`\nBlok #${block.blockNumber}`));
+      console.log(chalk.green(`Blok #${block.blockNumber}`));
       console.log("Tarih:", block.timestamp);
       console.log("Önceki Hash:", block.previousHash);
       console.log("Veri:", block.data);
