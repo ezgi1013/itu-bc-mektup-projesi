@@ -3,8 +3,10 @@ import chalk from "chalk";
 import { runInput } from "./input.js";
 import { Blockchain } from "./blockchain.js";
 import { Block } from "./block.js";
+import crypto from "crypto";
 
-console.log("💌 Blockchain Mektup Sistemine Hoşgeldiniz!");
+
+console.log(chalk.bgCyanBright("💌 Blockchain Mektup Sistemine Hoşgeldiniz!"));
 runInput();
 
   
