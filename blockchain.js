@@ -5,7 +5,7 @@ export class Blockchain {
   constructor() {
     this.chain = []; // blokları tutacak boş liste
   }
-
+console.log("ara");
   addBlock(data) {
     const blockNumber = this.chain.length + 1;
     const previousHash = this.chain.length ? "hash-placeholder" : "0"; // hash sonradan
