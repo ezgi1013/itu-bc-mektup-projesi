@@ -24,3 +24,4 @@ export class Blockchain {
     });
   }
 }
+console.log("değiştirdim.");
