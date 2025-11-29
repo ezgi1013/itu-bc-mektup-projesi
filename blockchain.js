@@ -39,7 +39,7 @@ export class Blockchain {
       if (!block.data || !block.data.openDate) {
     console.log(`Açılma tarihi yok, atlandı.`);
     return;
-  }
+    }
 
       const timeNow = new Date()
       const timeLetter = new Date(block.data.openDate.replace(" ","T"))

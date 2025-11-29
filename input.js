@@ -74,11 +74,9 @@ while(writeLetter){
     }
       },
 ]);
- 
-  
+   
 const newBlock = myChain.addBlock(answers);
-console.log(chalk.bgGray(`Mektup #${newBlock.blockNumber -1} eklendi!`));
-
+console.log(chalk.bgGray(`Mektup #${newBlock.blockNumber - 1} eklendi!`));
 
 
  const continue1 = await inquirer.prompt([
@@ -112,7 +110,7 @@ console.log(chalk.bgGray(`Mektup #${newBlock.blockNumber -1} eklendi!`));
         }
       ]);
         if(passWant.passwordCheck === pass){
-          b = false;
+          passCheck = false;
           console.log(chalk.green("Şifre doğru, blockchain zinciri görüntüleniyor..."));
           myChain.printChain();
       }      
