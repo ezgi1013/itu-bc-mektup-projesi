@@ -25,3 +25,4 @@ export class Blockchain {
   }
 }
 console.log("değiştirdim.");
+console.log("son kez.");
